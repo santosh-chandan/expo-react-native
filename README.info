@@ -1,0 +1,36 @@
+my-app/
+├── app/
+│   ├── _layout.tsx            # Root layout & navigation
+│   ├── index.tsx              # Home screen
+│   ├── (auth)/
+│   │   ├── login.tsx
+│   │   └── register.tsx
+│   ├── (blogs)/
+│   │   ├── index.tsx          # Blog list screen
+│   │   └── [id].tsx           # Blog detail screen (dynamic route)
+│   └── (profile)/index.tsx    # Profile screen
+├── src/
+│   ├── features/
+│   │   ├── auth/
+│   │   │   ├── api.ts
+│   │   │   ├── components/AuthForm.tsx
+│   │   │   ├── screens/LoginScreen.tsx
+│   │   │   ├── screens/RegisterScreen.tsx
+│   │   │   └── types.ts
+│   │   ├── blogs/
+│   │   │   ├── api.ts
+│   │   │   ├── components/BlogCard.tsx
+│   │   │   ├── screens/BlogListScreen.tsx
+│   │   │   ├── screens/BlogDetailScreen.tsx
+│   │   │   └── types.ts
+│   │   └── profile/
+│   │       ├── api.ts
+│   │       ├── components/ProfileCard.tsx
+│   │       ├── screens/ProfileScreen.tsx
+│   │       └── types.ts
+│   ├── contexts/AuthContext.tsx
+│   └── utils/helpers.ts
+├── assets/
+│   └── logo.png
+├── package.json
+└── tsconfig.json
