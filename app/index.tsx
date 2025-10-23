@@ -1,12 +1,16 @@
-import { Link } from 'expo-router';
-import { Text, View } from 'react-native';
+import { useRouter } from 'expo-router';
+import { useEffect } from 'react';
 
-export default function HomeScreen() {
-  return (
-    <View>
-      <Text>Welcome Home</Text>
-      <Link href="/about">Go to About</Link>
-      <Link href="/contact">Go to Contact</Link>
-    </View>
-  );
+export default function Index() {
+  const router = useRouter();
+
+  useEffect(() => {
+    // Wrap in a timeout to ensure layout mounted
+    const timeout = setTimeout(() => {
+      router.replace('/landing');
+    }, 0);
+    return () => clearTimeout(timeout);
+  }, []);
+
+  return null;
 }

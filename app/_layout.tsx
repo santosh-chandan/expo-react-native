@@ -1,11 +1,24 @@
-import { Stack } from 'expo-router';
+import MainLayoutWrapper from '@/src/components/MainLayoutWrapper';
+import { Slot, usePathname } from 'expo-router';
+import React from 'react';
+import { AppProvider } from '../src/contexts/AuthContext';
 
-export default function RootLayout() {
+export default function Layout() {
+
+  const pathname = usePathname();
+  // Landing page should not have header/footer
+  const isLanding = pathname === '/landing';
+
   return (
-    <Stack screenOptions={{ headerShown: true }}>
-      <Stack.Screen name="index" options={{ title: 'Home' }} />
-      <Stack.Screen name="about" options={{ title: 'About Us' }} />
-      <Stack.Screen name="contact" options={{ title: 'Contact' }} />
-    </Stack>
+    <AppProvider>
+      {isLanding ? (
+        <Slot />
+      ) : (
+        <MainLayoutWrapper topBarTitle="Suntory">
+          <Slot />
+        </MainLayoutWrapper>
+      )}
+    </AppProvider>
   );
+  
 }
