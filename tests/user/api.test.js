@@ -1,3 +1,12 @@
+
+// What This Test Covers
+  // Ensures your function:
+  // Retrieves token from AsyncStorage correctly
+  // Makes API call to /user/profile
+  // Returns expected data from Axios response
+  // Works both with and without token present
+
+
 // Import AsyncStorage — used for storing/retrieving data locally on device
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
