@@ -7,7 +7,7 @@ export default function Index() {
   useEffect(() => {
     // Wrap in a timeout to ensure layout mounted
     const timeout = setTimeout(() => {
-      router.replace('/landing');
+      router.replace('/static/landing');
     }, 0);
     return () => clearTimeout(timeout);
   }, []);

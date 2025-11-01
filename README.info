@@ -34,3 +34,29 @@ my-app/
 │   └── logo.png
 ├── package.json
 └── tsconfig.json
+
+
+
+app/
+ ├── _layout.tsx            ← global layout
+ ├── index.tsx              ← current entry route (home)
+ │
+ ├── components/            ← shared UI
+ ├── contexts/              ← AuthContext etc.
+ ├── services/
+ │    └── apis/
+ │
+ ├── features/
+ │    ├── auth/
+ │    │    ├── login.tsx
+ │    │    ├── register.tsx
+ │    │    └── _layout.tsx
+ │    ├── user/
+ │    └── static/
+ │         ├── index.tsx
+ │         ├── about.tsx
+ │         ├── contact.tsx
+ │         └── _layout.tsx
+ │
+ ├── tests/                 ← unit/integration tests
+ └── assets/ (optional)

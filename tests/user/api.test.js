@@ -14,7 +14,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 
 // Import the actual function we're testing (from your app's utils/api.js)
-import { getUserProfile } from '../src/utils/api'; // adjust path if needed
+import { getUserProfile } from '../../src/services/apis/api'; // adjust path if needed
 
 
 // -------------------------

@@ -2,7 +2,7 @@ import { Link, Stack } from 'expo-router';
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
-import { useApp } from '../../src/contexts/AuthContext';
+import { useApp } from '../../../src/contexts/AuthContext';
 
 export default function AuthLayout() {
   const { token } = useApp();
@@ -18,13 +18,13 @@ export default function AuthLayout() {
           <View style={styles.linkContainer}>
             {!token && (
               <>
-                <Link href="/login" asChild>
+                <Link href="/auth/login" asChild>
                   <TouchableOpacity>
                     <Text style={styles.navText}>Login</Text>
                   </TouchableOpacity>
                 </Link>
 
-                <Link href="/register" asChild>
+                <Link href="/auth/register" asChild>
                   <TouchableOpacity>
                     <Text style={styles.navText}>Register</Text>
                   </TouchableOpacity>

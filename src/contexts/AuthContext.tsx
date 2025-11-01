@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { router } from 'expo-router';
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { loginApi, logoutApi, registerApi } from '../features/auth/api';
+import { loginApi, logoutApi, registerApi } from '../services/apis/api';
 
 type AppContextType = {
   user: any;
@@ -21,7 +21,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [loading, setLoading] = useState(true); // important
   const [error, setError] = useState<string | null>(null);
 
-  // ✅ Load token from AsyncStorage on app start
+  // Load token from AsyncStorage on app start
   useEffect(() => {
     (async () => {
       try {
@@ -48,7 +48,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       await AsyncStorage.setItem('refreshToken', data.refreshToken);
       await AsyncStorage.setItem('user', JSON.stringify(data.user));
 
-      router.replace('/(main)/(user)/account');
+      router.replace('/user/account');
     } catch (err: any) {
       setError(err.response?.data?.message || 'Login failed');
     }
@@ -70,7 +70,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     await AsyncStorage.removeItem('user');
     setToken(null);
     setUser(null);
-    router.replace('/login');
+    router.replace('/auth/login');
   };
 
   return (

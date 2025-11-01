@@ -1,16 +1,16 @@
 import { Tabs, useRouter } from 'expo-router';
 import React, { useEffect } from 'react';
 import { ActivityIndicator, View } from 'react-native';
-import { useApp } from '../../../src/contexts/AuthContext';
+import { useApp } from '../../contexts/AuthContext';
 
-export default function UserLayout() {
+export default function BlogLayout() {
     const { user } = useApp();
     const router = useRouter();
 
     useEffect(() => {
     if (!user) {
         // No user = redirect to login
-        router.replace('/(auth)/login');
+        router.replace('/auth/login');
     }
     }, [user]);
 
@@ -30,12 +30,6 @@ export default function UserLayout() {
                 headerShown: true,         // Show header for each tab
                 tabBarActiveTintColor: '#1976d2',
                 tabBarStyle: { backgroundColor: '#fff', height: 60 },
-                
-                headerTitleAlign: 'center',
-                //headerStyle: { backgroundColor: '#1976d2', height: 60 }, // control height
-                //headerTintColor: '#fff', // title text color
-                headerTitleStyle: { fontSize: 18, fontWeight: '600' }, // text style
-  
             }}
         >
         <Tabs.Screen
@@ -43,8 +37,8 @@ export default function UserLayout() {
             options={{ title: 'Profile' }}
         />
         <Tabs.Screen
-            name="myblog"
-            options={{ title: 'My Blogs' }}
+            name="blogs"
+            options={{ title: 'Blogs' }}
         />
         </Tabs>
     );

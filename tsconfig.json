@@ -1,17 +1,23 @@
 {
-  "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "strict": true,
+    "jsx": "react-native",
+    "strict": false,
+    "allowJs": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./*"
-      ]
+      "@/*": ["src/*"],
+      "@app/*": ["app/*"]
     }
   },
   "include": [
-    "**/*.ts",
-    "**/*.tsx",
+    "app",
+    "src",
+    "types",
     ".expo/types/**/*.ts",
-    "expo-env.d.ts"
-, "src/features/auth/api.ts", "utils/logger.js"  ]
+    "expo-env.d.ts",
+    "tests"
+  ],
+  "extends": "expo/tsconfig.base"
 }

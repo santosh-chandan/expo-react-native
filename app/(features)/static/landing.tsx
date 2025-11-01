@@ -45,7 +45,7 @@ export default function LandingScreen() {
     // Mark permissions granted and navigate
     setGranted(true);
     await AsyncStorage.setItem('permissions_granted', 'true');
-    router.replace('/(auth)/login');
+    router.replace('/auth/login');
   } catch (e) {
     console.warn(e);
     Alert.alert('Error', 'Something went wrong while requesting permissions.');
@@ -58,7 +58,7 @@ useEffect(() => {
     const stored = await AsyncStorage.getItem('permissions_granted');
     if (stored === 'true') {
         // Already granted, move to login directly
-        router.replace('/(auth)/login');
+        router.replace('/auth/login');
     } else {
         // Not granted, show permission button
         askPermissions();

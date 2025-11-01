@@ -1,7 +1,7 @@
 import { useRouter } from 'expo-router';
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-import { useApp } from '../../src/contexts/AuthContext';
+import { useApp } from '../../../src/contexts/AuthContext';
 
 export default function Home() {
   const router = useRouter();
@@ -17,7 +17,7 @@ export default function Home() {
             <Text style={{ fontSize: 22, marginBottom: 12 }}>Welcome to My App</Text>
             <TouchableOpacity
               style={{ padding: 12, backgroundColor: '#1976d2', borderRadius: 8 }}
-              onPress={() => router.push('/login')} // ✅ correct
+              onPress={() => router.push('/auth/login')} // ✅ correct
             >
               <Text style={{ color: '#fff' }}>Login</Text>
             </TouchableOpacity>
@@ -29,12 +29,12 @@ export default function Home() {
         onPress={
           () => {
             if (token) {
-              router.push('/(main)/(blog)/list' as any)
+              router.push('/blog/list' as any)
             } else {
-              router.push('/login');
+              router.push('/auth/login');
             }
           }
-        } // ✅ correct
+        } // correct
       >
         <Text>Read blogs</Text>
       </TouchableOpacity>

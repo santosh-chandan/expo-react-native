@@ -1,8 +1,8 @@
-import UserProfileScreen from '@/src/features/user/screens/ProfileScreen';
 import React from 'react';
 import { Text, View } from 'react-native';
+import UserProfileScreen from '../../../src/(features)/user/components/profile';
 
-export default function ProfileScreen() {
+export default function AccountScreen() {
   console.log("ProfileScreen mounted");
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
