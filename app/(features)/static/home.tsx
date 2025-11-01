@@ -6,7 +6,7 @@ import { useApp } from '../../../src/contexts/AuthContext';
 export default function Home() {
   const router = useRouter();
   const { token, logout } = useApp(); // get auth info
-  console.log("heelo");
+  // console.log("heelo");
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>

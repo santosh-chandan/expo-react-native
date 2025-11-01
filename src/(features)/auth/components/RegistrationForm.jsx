@@ -1,14 +1,17 @@
-import { Link } from "expo-router";
+import { Link, useRouter } from "expo-router";
 import { useState } from "react";
 import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { useApp } from "../../../contexts/AuthContext";
 
 export default function RegistrationForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const router = useRouter();
+  const { register, login } = useApp()
 
-  const handleRegister = () => {
+  const handleRegister = async () => {
     if (!name || !email || !password || !confirmPassword) {
       Alert.alert("Missing Fields", "Please fill in all fields.");
       return;
@@ -17,7 +20,20 @@ export default function RegistrationForm() {
       Alert.alert("Password Mismatch", "Passwords do not match.");
       return;
     }
-    Alert.alert("Registration Successful", `Welcome, ${name}!`);
+    try {
+      const res = await register(name, email, password, confirmPassword)
+      //console.log("Registration success:", res);
+      const loginRes = await login(email, password);
+      //router.push("/user/account")
+      router.replace("/user/account")
+      console.log("Auto login success:", loginRes);
+
+    } catch (error) {
+       console.log(error);
+    }
+    
+   // Alert.alert("Registration Successful", `Welcome, ${name}!`);
+
   };
 
   return (

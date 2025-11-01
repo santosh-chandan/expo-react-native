@@ -1,12 +1,12 @@
 import { Link } from "expo-router";
 import React, { useState } from "react";
 import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
-import { useApp } from "../../../contexts/AuthContext"; // ✅ use context instead of calling API directly
+import { useApp } from "../../../contexts/AuthContext"; // use context instead of calling API directly
 
 export default function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { login, loading, error } = useApp(); // ✅ get login from context
+  const { login, loading, error } = useApp(); // get login from context
 
   const handleLogin = async () => {
     if (!email || !password) {
@@ -15,7 +15,7 @@ export default function LoginForm() {
     }
 
     try {
-      await login(email, password); // ✅ call context login
+      await login(email, password); // call context login
       // Navigation is handled *inside* AuthContext.login()
     } catch (err) {
       Alert.alert("Login Failed", "Invalid credentials or network error.");

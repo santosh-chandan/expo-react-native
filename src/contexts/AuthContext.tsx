@@ -57,7 +57,8 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const register = async (name: string, username: string, password: string, confirmPassword: string) => {
     try {
       setError(null);
-      await registerApi(name, username, password, confirmPassword);
+      const data = await registerApi(name, username, password, confirmPassword);
+      return data;
     } catch (err: any) {
       setError(err.response?.data?.message || 'Registration failed');
     }
